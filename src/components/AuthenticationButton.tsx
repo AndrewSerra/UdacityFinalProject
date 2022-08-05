@@ -1,13 +1,13 @@
 import React from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
-import { Button } from '@mui/material';
+import Button from '@mui/material/Button';
 
 const LoginButton = function() {
-    const { loginWithPopup } = useAuth0();
-    const onLoginClick = () => loginWithPopup({
+    const { loginWithRedirect } = useAuth0();
+    const onLoginClick = () => loginWithRedirect({
         max_age: 10080, // one week in seconds
     })
-    return <Button variant='text' onClick={onLoginClick}>Login</Button> 
+    return <Button variant='text' color='inherit' onClick={onLoginClick}>Login</Button> 
 }
 
 const LogoutButton = function() {
@@ -15,7 +15,7 @@ const LogoutButton = function() {
     const onLogoutClick = () => logout({
         
     })
-    return <Button variant='text' onClick={onLogoutClick}>Logout</Button> 
+    return <Button variant='text' color='inherit' onClick={onLogoutClick}>Logout</Button> 
 }
 
 export const AuthenticationButton = function() {
